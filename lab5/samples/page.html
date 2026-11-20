@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<HTML lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Тестова сторінка</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* <div> у CSS-коментарі - не тег */
+    p > a { color: red; }
+  </style>
+  <script>
+    // "<div>" і a<b у JavaScript - теж не теги
+    if (1 < 2) { document.write("<div class='fake'></div>"); }
+  </script>
+</head>
+<body>
+  <!-- <p>закоментований абзац</p> -->
+  <div id="main">
+    <h1>Заголовок</h1>
+    <P>Перший абзац з <a href="/a">посиланням</a> і <b>жирним</b>.</P>
+    <p>Другий абзац<br/>з переносом<br>рядка.</p>
+    <img src="x.png" alt="x"/>
+    <ul>
+      <li><a href="/1">Один</a></li>
+      <li><a href="/2">Два</a></li>
+      <li>Три</li>
+    </ul>
+  </div>
+  <script src="app.js"></script>
+</body>
+</HTML>

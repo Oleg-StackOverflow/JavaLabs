@@ -1,0 +1,54 @@
+﻿javac : compile-check\WontCompile.java:17: error: incompatible types: String cannot be converted to Integer
+строка:1 знак:1
++ javac -encoding UTF-8 -cp out/main -d out/wont-compile compile-check/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (compile-check\W...rted to Integer:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+        ints.add("five");                                        // 1: String � ������ Integer
+                 ^
+compile-check\WontCompile.java:19: error: incompatible types: Integer cannot be converted to String
+        String s = ints.get(0);                                  // 2: Integer �� String
+                           ^
+compile-check\WontCompile.java:21: error: incompatible types: MyList<Integer> cannot be converted to MyList<Number>
+        MyList<Number> numbers = ints;                           // 3: MyList<Integer> �� � MyList<Number>
+                                 ^
+compile-check\WontCompile.java:24: error: incompatible types: int cannot be converted to CAP#1
+        producer.add(1);                                         // 4: ...� ���������� - �
+                     ^
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Number from capture of ? extends Number
+compile-check\WontCompile.java:26: error: method copy in class MyCollections cannot be applied to given types;
+        MyCollections.copy(ints, MyArrayList.of(1.5));           // 5: Double �� ������� � MyList<Integer>
+                     ^
+  required: MyList<? super T>,MyList<? extends T>
+  found:    MyList<Integer>,MyArrayList<Double>
+  reason: inference variable T has incompatible bounds
+    upper bounds: Integer,Object
+    lower bounds: E,Double
+  where T,E are type-variables:
+    T extends Object declared in method <T>copy(MyList<? super T>,MyList<? extends T>)
+    E extends Object declared in method <E>of(E...)
+compile-check\WontCompile.java:29: error: incompatible types: Comparator<String> cannot be converted to Comparator<? super Integer>
+        ints.sort(byLen);                                        // 6: Comparator<String> �� ? super Integer
+                  ^
+compile-check\WontCompile.java:32: error: incompatible types: inference variable E has incompatible bounds
+        set.addAll(List.of("a"));                                // 7: List<String> �� Iterable<? extends Integer>
+           ^
+    upper bounds: Integer,Object
+    lower bounds: String
+  where E is a type-variable:
+    E extends Object declared in method <E>of(E)
+compile-check\WontCompile.java:35: error: incompatible types: bad return type in lambda expression
+        cache.computeIfAbsent("k", k -> "not a number");         // 8: loader �� ��������� ? extends Integer
+                                        ^
+    String cannot be converted to Integer
+compile-check\WontCompile.java:37: error: incompatible types: inference variable E has incompatible bounds
+        MyCollections.sum(MyArrayList.of("1", "2"));             // 9: String �� Number
+                     ^
+    upper bounds: Number,Object
+    lower bounds: String
+  where E is a type-variable:
+    E extends Object declared in method <E>of(E...)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors
