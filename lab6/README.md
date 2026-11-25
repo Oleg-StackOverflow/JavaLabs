@@ -8,7 +8,6 @@
 - `src/rbtree/TreePrinter.java` — відображення дерева: зверху вниз або боком (для широких дерев)
 - `src/rbtree/app/Main.java` — консольне меню і демо-сценарій
 - `test/rbtree` — JUnit 4 тести (24 шт.), `lib/` — junit + hamcrest
-- `demo.log`, `test.log` — логи запуску
 
 Позначення на рисунках: `[x]` — чорний вузол, `(x)` — червоний вузол.
 
